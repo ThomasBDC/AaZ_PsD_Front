@@ -18,6 +18,10 @@
   font-weight: bold;
 }
 
+#user-icon {
+  cursor: pointer;
+}
+
 footer {
   font-size: 0.8rem;
   letter-spacing: 1.5px;

@@ -9,6 +9,7 @@ function loadFile(folder, fileName, target) {
   r.onreadystatechange = function () {
     if (r.readyState != 4 || r.status != 200) return;
     document.getElementById(target).innerHTML = r.responseText;
+    handleLinkPwdForgotten();
   };
   r.send();
 }
@@ -38,5 +39,15 @@ const homePage = () => {
 
   document.querySelector('head').appendChild(link);
 };
+
+const pwdForgottenPage = () => {
+  loadFile('connexion_forget_pwd', 'connexion_forget_pwd', 'pageContent');
+};
+
+const handleLinkPwdForgotten = () => {
+  pwdForgottenLink = document.getElementById('pwd_forgotten_link');
+  pwdForgottenLink.addEventListener('click', pwdForgottenPage);
+};
+
 userIcon.addEventListener('click', connexionPage);
 navbarBrand.addEventListener('click', homePage);
