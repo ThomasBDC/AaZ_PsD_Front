@@ -1,0 +1,52 @@
+body {
+  background-color: rgb(252, 252, 252);
+  background: url('../assets/img/bg-01.jpg') no-repeat 0 10rem / auto;
+  object-fit: cover;
+  min-height: 100vh;
+}
+
+.home-content {
+  margin-top: 25vh;
+  padding-left: 5vh;
+  color: #03012c;
+  opacity: 0;
+  animation: fade 0.6s ease-out forwards;
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+
+.home-content h1 {
+  font-size: 3.375rem;
+  font-weight: bold;
+  max-width: 18rem;
+  line-height: 1.07;
+}
+
+.home-content p {
+  font-size: 2.25rem;
+  font-weight: 500;
+  max-width: 30rem;
+  line-height: 1.44;
+}
+
+@media screen and (max-width: 992px) {
+  .home-content {
+    margin-top: 15vh;
+    background-color: #e3f8f6a9;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(155, 155, 155, 0.267);
+    /* color: white; */
+    padding: 5rem;
+  }
+  .home-content h1 {
+    font-size: 2.25rem;
+  }
+
+  .home-content p {
+    font-size: 1.5rem;
+  }
+}
