@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+  height: 5rem;
+  background-color: #e3f8f6;
+  box-shadow: 0 4px 4px #00000041, 0 8px 8px #00000041;
+}
+
+.brand-name {
+  font-size: 1.875rem;
+  font-weight: bold;
+}
+
+footer {
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  position: fixed;
+  bottom: 0;
+  padding-top: 1rem;
+  width: 100vw;
+  height: 3.75rem;
+  background-color: #e3f8f6;
+  border-top: 3px solid #7e7e7e1a;
+}
