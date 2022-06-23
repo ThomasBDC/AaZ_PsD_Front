@@ -1,5 +1,6 @@
 const pageLoadEventName = "PageLoadEvent";
 const userIcon = document.getElementById('user-icon');
+const buttonConnection = document.getElementById('Button-connection');
 const navbarBrand = document.querySelector('.navbar-brand');
 const loadingModal = new bootstrap.Modal('#LoadingModal', {
   keyboard:false,

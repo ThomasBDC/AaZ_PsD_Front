@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 body {
   background-color: rgb(252, 252, 252);
   background: url('../assets/img/bg-01.jpg') no-repeat 0 10rem / auto;
@@ -49,4 +51,26 @@ body {
   .home-content p {
     font-size: 1.5rem;
   }
+}
+.Button-connection-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-connection {
+  padding: 7px;
+  margin: 10px;
+  margin-top: 7vh;
+  width: 20%;
+  justify-content: center;
+  margin-right: 10vw;
+  border: solid 1px #D92B2B;
+  box-shadow: 3px 6px #03012C;
+  border-radius: 3px;
+}
+.button-connection:hover {
+  background-color: rgba(124, 124, 124, 0.733);
+}
+a {
+  text-decoration: none; /* no underline */
 }
