@@ -8,7 +8,7 @@
         alt="..."
       />
       <div class="card-body">
-        <form method="">
+        <form id="loginForm">
           <div class="mb-4">
             <label for="exampleInputEmail1" class="form-label">Email</label>
             <input
@@ -16,6 +16,7 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              name="username"
             />
             <div id="emailHelp" class="form-text"></div>
           </div>
@@ -27,9 +28,10 @@
               type="password"
               class="form-control"
               id="exampleInputPassword1"
+              name="password"
             />
           </div>
-          <button type="submit" class="btn btn-primary w-100 btn-submit">
+          <button type="button" class="btn btn-primary w-100 btn-submit" onclick="connectuser()">
             Se connecter
           </button>
           <div class="mt-5 text-center">
