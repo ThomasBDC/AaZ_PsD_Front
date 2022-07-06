@@ -21,6 +21,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
         case "home_home":
           homePage();
           break;
+        case "users_allUsers":
+          onlyUserConnected();
+          users();
+          connexionPage();
+        break;
         case "connexion_connexion":
           onlyUserNotConnected();
           connexionPage();
@@ -63,6 +68,10 @@ const homePage = () => {
 
 const pwdForgottenPage = () => {
   addCssToFile('connexion_forget_pwd', 'connexion_forget_pwd');
+};
+
+const users = () => {
+  addCssToFile('users', 'users');
 };
 
 //Pour ajouter du CSS à la page
