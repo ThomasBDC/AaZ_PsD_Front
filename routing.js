@@ -22,15 +22,31 @@ window.addEventListener('DOMContentLoaded', (event) => {
           homePage();
           break;
         case "connexion_connexion":
+          onlyUserNotConnected();
           connexionPage();
           break;
         case "connexion_forget_pwd_connexion_forget_pwd":
+          onlyUserNotConnected();
           pwdForgottenPage();
           break;
         default:
           alert("Pas de script implémenté pour cette page");
           break;
     }
+    let lienConnexion = document.querySelectorAll(".lienConnexion");
+    let lienConnected = document.querySelectorAll(".lienConnected");
+
+    if(isAuthenticated()){
+      lienConnexion.forEach(element => {
+        element.style.display = 'none';
+      });
+    }
+    else{
+      lienConnected.forEach(element => {
+        element.style.display = 'none';
+      });
+    }
+    
   });
   // setTimeout(() => {
   //   loadingModal.hide();
@@ -88,4 +104,30 @@ function loadFile(folder, fileName, target = "pageContent") {
     window.dispatchEvent(pageLoad);
   };
   r.send();
+}
+
+//Si user pas connecté, on ne fait rien
+//Si user connecté, on redirige vers la page d'accueil
+function onlyUserNotConnected(){
+  if(isAuthenticated()){
+    redirectToHome()
+  }
+  else{
+    //on ne fait rien
+  }
+}
+
+//Si user connecté, on ne fait rien
+//Si user non connecté, on redirige vers la page de connexion
+function onlyUserConnected(){
+  if(!isAuthenticated()){
+    window.location.replace("/index.html?rep=connexion&fich=connexion");
+  }
+  else{
+    //on ne fait rien
+  }
+}
+
+function redirectToHome(){
+  window.location.replace("/index.html?rep=home&fich=home");
 }

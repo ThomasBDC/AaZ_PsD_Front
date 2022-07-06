@@ -30,9 +30,55 @@ function connectuser(){
             }
         })
         .then(reponse => {
-            console.log("Token JWT :"+reponse);
+            saveToken(reponse);
+            redirectToHome()
         })
         .catch(error =>{
             alert(error);
         });
+}
+
+function saveToken(token){
+    localStorage.setItem('token', token);
+}
+
+function getToken(){
+    return localStorage.getItem('token');
+}
+
+function isAuthenticated(){
+    let token = getToken();
+
+    let tokenDecode = parseJwt(token);
+    if(tokenDecode == undefined){
+        return false;
+    }
+    if (tokenDecode.exp < new Date()/1000) {
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+function parseJwt(token) {
+    if(token != ''){
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+
+        return JSON.parse(jsonPayload);
+    }
+    else{
+        return undefined;
+    }
+};
+
+function Disconnect(){
+    //Ici on pourrait demander à l'api de faire une déconnexion
+    //Pour rendre le token invalide
+    localStorage.setItem('token', '');
+    redirectToHome()
 }
