@@ -30,5 +30,4 @@ export function init(){
 
       })
       .catch(error => console.log('error', error));
-  
 }

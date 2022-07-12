@@ -139,7 +139,7 @@ function onlyUserNotConnected(){
 //Si user non connecté, on redirige vers la page de connexion
 function onlyUserConnected(){
   if(!isAuthenticated()){
-    window.location.replace("/index.html?rep=connexion&fich=connexion");
+    window.location.replace("./index.html?rep=connexion&fich=connexion");
   }
   else{
     //on ne fait rien
@@ -147,7 +147,7 @@ function onlyUserConnected(){
 }
 
 function redirectToHome(){
-  window.location.replace("/index.html?rep=home&fich=home");
+  window.location.replace("./index.html?rep=home&fich=home");
 }
 
 function showLoader(){
