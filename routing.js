@@ -8,7 +8,7 @@ const loadingModal = new bootstrap.Modal('#LoadingModal', {
 })
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  //loadingModal.show();
+  showLoader();
   let queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
 
@@ -24,7 +24,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         case "users_allUsers":
           onlyUserConnected();
           users();
-          connexionPage();
         break;
         case "connexion_connexion":
           onlyUserNotConnected();
@@ -56,22 +55,30 @@ window.addEventListener('DOMContentLoaded', (event) => {
   // setTimeout(() => {
   //   loadingModal.hide();
   // }, "500")
+  classicHideLoader()
 });
 
 const connexionPage = () => {
   addCssToFile('connexion', 'connexion');
+  classicHideLoader()
 };
 
 const homePage = () => {
   addCssToFile('home', 'home');
+  classicHideLoader()
 };
 
 const pwdForgottenPage = () => {
   addCssToFile('connexion_forget_pwd', 'connexion_forget_pwd');
+  classicHideLoader()
 };
 
 const users = () => {
   //Js à appeler 
+  import('./users/users.js')
+  .then((module) => {
+      module.init();
+  });
   addCssToFile('users', 'users');
 };
 
@@ -140,4 +147,16 @@ function onlyUserConnected(){
 
 function redirectToHome(){
   window.location.replace("/index.html?rep=home&fich=home");
+}
+
+function showLoader(){
+  loadingModal.show();
+}
+
+function hideLoader(){
+  loadingModal.hide();
+}
+
+function classicHideLoader(){
+    hideLoader();
 }
