@@ -1,4 +1,5 @@
 function connectuser(){
+    showLoader();
     //récupérer mon formulaire
     var myForm = document.getElementById("loginForm");
     let formObj = new FormData(myForm);
@@ -25,6 +26,7 @@ function connectuser(){
                 return response.text();
             }
             else{
+                hideLoader();
                 alert("Connexion impossible");
                 return response;
             }
@@ -51,9 +53,11 @@ function isAuthenticated(){
 
     let tokenDecode = parseJwt(token);
     if(tokenDecode == undefined){
+        localStorage.setItem('token', '');
         return false;
     }
     if (tokenDecode.exp < new Date()/1000) {
+        localStorage.setItem('token', '');
         return false;
     }
     else{
@@ -80,5 +84,5 @@ function Disconnect(){
     //Ici on pourrait demander à l'api de faire une déconnexion
     //Pour rendre le token invalide
     localStorage.setItem('token', '');
-    redirectToHome()
+    redirectToHome();
 }

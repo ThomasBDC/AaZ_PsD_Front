@@ -16,6 +16,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   loadFile(urlParams.get('rep'), urlParams.get('fich'));
 
   window.addEventListener(pageLoadEventName, (e) => {
+    showLoader();
     const pageName = e.detail.folder+'_'+e.detail.fileName;
     switch (pageName){
         case "home_home":
