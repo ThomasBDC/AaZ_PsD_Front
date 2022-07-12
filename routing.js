@@ -106,7 +106,7 @@ function loadFile(folder, fileName, target = "pageContent") {
   }
 
   var r = new XMLHttpRequest();
-  let url = '/' + folder + '/' + fileName + '.html';
+  let url = './' + folder + '/' + fileName + '.html';
   r.open('GET', url, true);
   r.onreadystatechange = function () {
     if (r.readyState != 4 || r.status != 200) return;
