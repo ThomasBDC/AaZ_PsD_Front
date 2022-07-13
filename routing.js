@@ -26,6 +26,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
           onlyUserConnected();
           users();
         break;
+        case "users_createUser":
+          onlyUserConnected();
+          createUser();  
+        break;
         case "connexion_connexion":
           onlyUserNotConnected();
           connexionPage();
@@ -82,6 +86,14 @@ const users = () => {
   });
   addCssToFile('users', 'users');
 };
+
+const createUser = () => {
+  import('./users/createUser.js')
+  .then((module) => {
+      module.init();
+  });
+  hideLoader();
+}
 
 //Pour ajouter du CSS à la page
 function addCssToFile(folder, fileName){
